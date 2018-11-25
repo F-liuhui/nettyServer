@@ -1,0 +1,29 @@
+InHandler中的方法执行顺序(继承SimpleChannelInboundHandler<Object>可以免去手动资源清理)
+1，当一个连接过来时
+  //(连接刚过来时调用，可在里面设置是否拒绝连接)
+  1，isSharable ()
+  // 添加一个连接通道时调用
+  2，handlerAdded ()
+  //注册channel时调用
+  3，channelRegistered ()
+  //活动就绪，连接到远程计算机，可以发送数据了
+  4，channelActive ()
+2，当发送数据时
+  //接受消息时调用
+  1，acceptInboundMessage ()
+  //读取消息时调用
+  2，channelRead0 ()
+  //读取完成时调用
+  3，channelReadComplete ()
+3，断开连接时
+  //通道读取完成时调用(客户端断开连接时会发消息通知服务端)
+  1，channelReadComplete ()
+  //通道处于不活跃状态，也既与远程连接机断开时调用
+  2，channelInactive ()
+  //注销通道的注册时调用
+  3，channelUnregistered ()
+  //移除一个连接通道时调用
+  4，handlerRemoved ()
+4，FutureListener绑定,一般在read方法绑定该消息。ctx.writeAndFlush(Object).addListener()，去绑定一个监听器
+5，handler 通过继承ChannelOutboundHandlerAdapter(出链路) 和 ChannelInboundHandlerAdapter
+  (一般继承SimpleChannelInboundHandler<Object>更好，可以不用手动清理资源)进链路来实现控制
