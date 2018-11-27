@@ -19,7 +19,7 @@ public class SimpleChannelInitializer extends ChannelInitializer<SocketChannel> 
     protected void initChannel(SocketChannel channel) throws Exception {
         //得到一个通道
         ChannelPipeline pipeline= channel.pipeline();
-        //帧解码器 Delimiters.lineDelimiter()表示以\n结尾表示一个完整的消息，8192表示流长度。
+        //帧解码器 Delimiters.lineDelimiter()以\n结尾表示一个完整的消息，8192表示流长度。
         pipeline.addLast("framer", new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
 
         //字符串解码 和 编码
