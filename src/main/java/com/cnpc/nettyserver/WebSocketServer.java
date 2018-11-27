@@ -48,7 +48,7 @@ public class WebSocketServer {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             //得到管道
                             ChannelPipeline pipeline = ch.pipeline();
-                            //用于Http请求的编码或者解码
+                            //用于Http请求的编码或者解码（websocket也适应）
                             pipeline.addLast("http-codec", new HttpServerCodec());
                             //把Http消息组成完整地HTTP消息，大小为65536
                             pipeline.addLast("aggregator", new HttpObjectAggregator(65536));

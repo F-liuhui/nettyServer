@@ -34,7 +34,7 @@ public class SimpleServerHandler extends SimpleChannelInboundHandler<Object> {
      * @param msg
      * @throws Exception
      */
-   /* @Override
+   /** @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
         // 收到消息直接打印输出
@@ -122,7 +122,7 @@ public class SimpleServerHandler extends SimpleChannelInboundHandler<Object> {
         return super.isSharable();
     }
 
-    /*
+    /**
      * (non-Javadoc)
      * 每当从服务端收到新的客户端连接时
      */
@@ -132,7 +132,7 @@ public class SimpleServerHandler extends SimpleChannelInboundHandler<Object> {
         super.handlerAdded(ctx);
     }
 
-    /*
+    /**
      * (non-Javadoc)
      * 每当从服务端收到客户端断开时
      */
@@ -142,7 +142,7 @@ public class SimpleServerHandler extends SimpleChannelInboundHandler<Object> {
         super.handlerRemoved(ctx);
     }
 
-    /*
+    /**
      * exceptionCaught() 事件处理方法是当出现 Throwable 对象才会被调用，
      * 即当 Netty 由于 IO 错误或者处理器在处理事件时抛出的异常时。
      * 在大部分情况下，捕获的异常应该被记录下来并且把关联的 channel 给关闭掉。
@@ -179,7 +179,7 @@ public class SimpleServerHandler extends SimpleChannelInboundHandler<Object> {
         ctx.writeAndFlush("Received your message !\n");
 
     }
-    /*@Override 现有版本中没有 messageReceived 方法 netty5.x 版本中存在该方法，代替了channelRead0方法
+    /**@Override 现有版本中没有 messageReceived 方法 netty5.x 版本中存在该方法，代替了channelRead0方法
     protected void messageReceived(ChannelHandlerContext ctx, Object msg) throws Exception {
     }*/
 

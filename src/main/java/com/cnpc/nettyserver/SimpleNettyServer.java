@@ -1,6 +1,6 @@
 package com.cnpc.nettyserver;
 
-import com.cnpc.handler.SimpleChannelInitializer;
+import com.cnpc.channelinit.SimpleChannelInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
@@ -11,7 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 /**
  * netty 服务端练习
  */
-public class NettyServer {
+public class SimpleNettyServer {
     private static int port=8008;
     public static void main(String[] args) {
 
